@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../211021_BS_01/bootstrap/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div>
+    <table>
+        <tr>
+            <th>
+                <input type="text" id="input1">
+                <input type="text" id="input2">
+                <input type="text" id="input3">
+             =   <input type="text" id="input4">
+            </th>
+        </tr>
+        <tr>
+            <td style="font-size: 20px;">
+                <button onclick="view('1')" style="width: 60px;">1</button>
+                <button onclick="view('2')" style="width: 60px;">2</button>
+                <button onclick="view('3')" style="width: 60px;">3</button>
+                <button onclick="viewCalculate('+')" style="width: 60px;">+</button>
+            </td>
+        </tr>
+        <tr>
+            <td style="font-size: 20px;">
+                <button onclick="view('4')" style="width: 60px;">4</button>
+                <button onclick="view('5')" style="width: 60px;">5</button>
+                <button onclick="view('6')" style="width: 60px;">6</button>
+                <button onclick="viewCalculate('-')" style="width: 60px;">-</button>
+            </td>
+        </tr>
+        <tr>
+            <td style="font-size: 20px;">
+                <button onclick="view('7')" style="width: 60px;">7</button>
+                <button onclick="view('8')" style="width: 60px;">8</button>
+                <button onclick="view('9')" style="width: 60px;">9</button>
+                <button onclick="viewCalculate('*')" style="width: 60px;">*</button>
+            </td>
+        </tr>
+        <tr>
+            <td style="font-size: 20px;">
+                <button onclick="viewblank('clear')" style="width: 60px;">C</button>
+                <button onclick="view('0')" style="width: 60px;">0</button>
+                <button onclick="viewCalculate('/')" style="width: 60px;">/</button>
+                <button onclick="viewequal('=')" style="width: 60px;">=</button>
+            </td>
+        </tr>
+    </table>
+    </div>
+
+    <script>
+        var view=function(val){
+            if(document.getElementById("input1").value==""){
+                document.getElementById("input1").value=val;
+            }else (document.getElementById("input3").value=val)
+        }
+        var viewCalculate=function(val){
+            document.getElementById("input2").value=val;
+        }
+        var viewblank=function(val){
+            document.getElementById("input1").value=""
+            document.getElementById("input2").value=""
+            document.getElementById("input3").value=""
+            document.getElementById("input4").value=""
+        }
+        function viewequal(){
+            if(document.getElementById("input2").value=="-"){
+                let x=document.getElementById("input1").value;
+                let y=document.getElementById("input3").value;
+                let z= x-y;
+                document.getElementById("input4").value=z;
+            }else if(document.getElementById("input2").value=="*"){
+                let x=document.getElementById("input1").value;
+                let y=document.getElementById("input3").value;
+                let z= x*y;
+                document.getElementById("input4").value=z;
+            }else if(document.getElementById("input2").value=="/"){
+                let x=document.getElementById("input1").value;
+                let y=document.getElementById("input3").value;
+                let z= x/y;
+                document.getElementById("input4").value=z;
+            }else if(document.getElementById("input2").value=="+"){
+                let x=document.getElementById("input1").value;
+                let y=document.getElementById("input3").value;
+                let z= Number(x)+Number(y);
+                document.getElementById("input4").value=z;
+            }
+        }
+    </script>
+</body>
+</html>
